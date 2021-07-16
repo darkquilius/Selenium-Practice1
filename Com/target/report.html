@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+  max-width: calc(100% - 1.5em);
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  max-width: 100%;
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-attachment__text {
+  background-color: #ebebeb;
+  padding: 0.5em;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [{"meta":{"protocolVersion":"14.0.1","implementation":{"name":"cucumber-jvm","version":"6.10.0"},"runtime":{"name":"Java HotSpot(TM) 64-Bit Server VM","version":"15.0.2+7-27"},"os":{"name":"Linux"},"cpu":{"name":"amd64"}}},{"testRunStarted":{"timestamp":{"seconds":"1626445249","nanos":258532325}}},{"source":{"uri":"file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature","data":"\n@AppFeatures\nFeature: App Testing\n  I want to test different challenges using The-Internet heroku app\n\n  @Add_Elements\n  @SmokeTest2\n  Scenario: Add some elements\n    Given I want to add some elements\n    When I click the add elements button twice\n    Then two elements are added\n    \n  @Remove_Elements\n  @SmokeTest2\n  Scenario: delete some elements\n    Given I want to delete some added elements\n    When I click the delete button on each element\n    Then the elements are removed\n    \n  @Basic_Auth_Pass\n  Scenario: gain basic authorization\n    Given I want to gain authorization\n    When I give the correct creds through the http req\n    Then i am given authorization\n    \n  @Basic_Auth_Fail\n  Scenario: gain basic authorization\n    Given I want to gain authorization\n    When I give incorrect creds through the http req\n    Then i am not given authorization\n    \n  @Broken_Imgs\n  Scenario: check for broken images\n    Given I want to check for broken images\n    When I make a list of images\n    And check them for broken images\n    Then there are no broken images\n    \n  @Checkboxes_Default\n  Scenario: working with checkboxes\n    Given I want to work with checkboxes\n    When I check the default settings\n    Then the first box is not enabled\n    And the second box is enabled\n    \n  @Checkboxes_Editted\n  Scenario: working with editted checkboxes\n    Given I want to work with editted checkboxes\n    When I change the default settings for each box\n    Then the first box is enabled\n    And the second box is not enabled\n    \n  @Context_Menu_Right_Click\n  Scenario: working with context menus\n    Given I want to access the context menu\n    When I right click the context menu\n    Then the context menu is accessed\n    \n  @Disappearing_Elements\n  Scenario: checking disappearing elements\n    Given I want all elements to be there\n    When I check if the elements are there\n    Then all elements are present\n    \n  @Drag_And_Drop\n  Scenario: checking if I can drag and drop\n    Given I want to drag and drop A to B\n    When I drag and drop A to B\n    Then A and B switch spots\n\n  #@tag2\n  #Scenario Outline: Title of your scenario outline\n    #Given I want to write a step with \u003cname\u003e\n    #When I check for the \u003cvalue\u003e in step\n    #Then I verify the \u003cstatus\u003e in step\n#\n    #Examples: \n      #| name  | value | status  |\n      #| name1 |     5 | success |\n      #| name2 |     7 | Fail    |\n","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature","feature":{"location":{"line":3,"column":1},"tags":[{"location":{"line":2,"column":1},"name":"@AppFeatures","id":"7bee2b2d-1138-464c-8c73-39a3e2eb9d1f"}],"language":"en","keyword":"Feature","name":"App Testing","description":"  I want to test different challenges using The-Internet heroku app","children":[{"scenario":{"location":{"line":8,"column":3},"tags":[{"location":{"line":6,"column":3},"name":"@Add_Elements","id":"82945bf8-80f2-449d-9da0-afd95a91a56f"},{"location":{"line":7,"column":3},"name":"@SmokeTest2","id":"cf3da14a-9669-4db9-abaf-23bdaf773fcd"}],"keyword":"Scenario","name":"Add some elements","steps":[{"location":{"line":9,"column":5},"keyword":"Given ","text":"I want to add some elements","id":"7b06b419-a843-438d-ac11-cf17da87bba1"},{"location":{"line":10,"column":5},"keyword":"When ","text":"I click the add elements button twice","id":"f80e80d3-200b-4251-b8e7-11ccce70d0fc"},{"location":{"line":11,"column":5},"keyword":"Then ","text":"two elements are added","id":"a9c86cad-1f4a-431d-9b28-4e8b06e1985a"}],"id":"821445d6-62b4-4667-ac25-57012ecaf061"}},{"scenario":{"location":{"line":15,"column":3},"tags":[{"location":{"line":13,"column":3},"name":"@Remove_Elements","id":"7568ee7a-4b7f-4cbb-a8f8-d901be13cb98"},{"location":{"line":14,"column":3},"name":"@SmokeTest2","id":"f060d961-1df4-43b1-b13b-dabc07b969b4"}],"keyword":"Scenario","name":"delete some elements","steps":[{"location":{"line":16,"column":5},"keyword":"Given ","text":"I want to delete some added elements","id":"51ae6d94-96a5-4fe7-b121-7703c4c54d6c"},{"location":{"line":17,"column":5},"keyword":"When ","text":"I click the delete button on each element","id":"64945f6c-f701-4bf5-b25a-0d2927105ecf"},{"location":{"line":18,"column":5},"keyword":"Then ","text":"the elements are removed","id":"930297e2-1a96-4a05-ac1e-dc6aa521a854"}],"id":"e7529870-b0e0-487c-97dd-b36bda9ffa23"}},{"scenario":{"location":{"line":21,"column":3},"tags":[{"location":{"line":20,"column":3},"name":"@Basic_Auth_Pass","id":"97ddd135-cfdc-42f1-add0-2693e177cd08"}],"keyword":"Scenario","name":"gain basic authorization","steps":[{"location":{"line":22,"column":5},"keyword":"Given ","text":"I want to gain authorization","id":"dd3ac098-a8bf-4bf4-a117-2cf70ae50bff"},{"location":{"line":23,"column":5},"keyword":"When ","text":"I give the correct creds through the http req","id":"16a3efd7-6426-40ff-882c-fe6f3fafa83b"},{"location":{"line":24,"column":5},"keyword":"Then ","text":"i am given authorization","id":"972d4902-1c6d-405c-9d5b-61e0a0174287"}],"id":"86fa7d79-94a6-463f-9422-bcb4476be559"}},{"scenario":{"location":{"line":27,"column":3},"tags":[{"location":{"line":26,"column":3},"name":"@Basic_Auth_Fail","id":"361e73ab-e777-41f1-9f38-317612ee3579"}],"keyword":"Scenario","name":"gain basic authorization","steps":[{"location":{"line":28,"column":5},"keyword":"Given ","text":"I want to gain authorization","id":"ca0c8f99-390c-4577-89f2-f6cac20dff4b"},{"location":{"line":29,"column":5},"keyword":"When ","text":"I give incorrect creds through the http req","id":"ae1f0389-649c-479e-910b-c5c21909c309"},{"location":{"line":30,"column":5},"keyword":"Then ","text":"i am not given authorization","id":"a993cb54-2ddc-4d1e-9398-cc007a6a5e30"}],"id":"7f79c4b3-11b0-41f7-9f1e-3e98c09d9744"}},{"scenario":{"location":{"line":33,"column":3},"tags":[{"location":{"line":32,"column":3},"name":"@Broken_Imgs","id":"266afb50-aab8-4aae-b960-4610ae4648a0"}],"keyword":"Scenario","name":"check for broken images","steps":[{"location":{"line":34,"column":5},"keyword":"Given ","text":"I want to check for broken images","id":"42f098af-4746-486f-b56a-2e8bd0fa75d8"},{"location":{"line":35,"column":5},"keyword":"When ","text":"I make a list of images","id":"a6c9768f-604f-416b-89df-4136e9d2d24f"},{"location":{"line":36,"column":5},"keyword":"And ","text":"check them for broken images","id":"f14ae95a-9f17-4959-890d-df23354cf5d3"},{"location":{"line":37,"column":5},"keyword":"Then ","text":"there are no broken images","id":"bbc75c54-500a-4de9-896c-ef19f266cd10"}],"id":"0ffa1087-b84c-4f9b-995e-fe7ffdac25d0"}},{"scenario":{"location":{"line":40,"column":3},"tags":[{"location":{"line":39,"column":3},"name":"@Checkboxes_Default","id":"de438afa-b426-4788-9e9e-a747ce0033d7"}],"keyword":"Scenario","name":"working with checkboxes","steps":[{"location":{"line":41,"column":5},"keyword":"Given ","text":"I want to work with checkboxes","id":"90fd68f0-3add-47ca-998e-8156b0ca2a83"},{"location":{"line":42,"column":5},"keyword":"When ","text":"I check the default settings","id":"2a9b1da7-05c9-403b-b14f-103b90b4c6f2"},{"location":{"line":43,"column":5},"keyword":"Then ","text":"the first box is not enabled","id":"fda19853-0eda-4bb3-b6f0-62e4fb5472a1"},{"location":{"line":44,"column":5},"keyword":"And ","text":"the second box is enabled","id":"78911fdc-f561-4b5e-8a75-13077f31a3c1"}],"id":"ba4a0f1c-123e-4ed8-8255-8bda8108ec91"}},{"scenario":{"location":{"line":47,"column":3},"tags":[{"location":{"line":46,"column":3},"name":"@Checkboxes_Editted","id":"d887c431-00d8-40fe-b9c0-3ee9bab02a6c"}],"keyword":"Scenario","name":"working with editted checkboxes","steps":[{"location":{"line":48,"column":5},"keyword":"Given ","text":"I want to work with editted checkboxes","id":"05e0509e-ae22-4f55-8cbe-2a5c70c3433d"},{"location":{"line":49,"column":5},"keyword":"When ","text":"I change the default settings for each box","id":"adac1889-a11d-4c6d-afaa-c8d7ac3f001d"},{"location":{"line":50,"column":5},"keyword":"Then ","text":"the first box is enabled","id":"3ecf8bab-c91a-417a-a7e9-c891cac12dcc"},{"location":{"line":51,"column":5},"keyword":"And ","text":"the second box is not enabled","id":"f3687f9f-5d32-4c9e-a314-1558d7a1acfe"}],"id":"59f6cd4c-5c25-4927-968d-ec05b10643c3"}},{"scenario":{"location":{"line":54,"column":3},"tags":[{"location":{"line":53,"column":3},"name":"@Context_Menu_Right_Click","id":"4e68f984-4e5a-4c91-9195-5ffb72f8954b"}],"keyword":"Scenario","name":"working with context menus","steps":[{"location":{"line":55,"column":5},"keyword":"Given ","text":"I want to access the context menu","id":"0895785a-34b3-45c9-abcf-53d6963c0800"},{"location":{"line":56,"column":5},"keyword":"When ","text":"I right click the context menu","id":"c8ec3995-b6e7-453c-a810-8b2d3d37f7ec"},{"location":{"line":57,"column":5},"keyword":"Then ","text":"the context menu is accessed","id":"1b6885ea-baa4-46d9-9e08-1faa93a9567a"}],"id":"681c790b-ea9b-4a2b-8013-314407eaa134"}},{"scenario":{"location":{"line":60,"column":3},"tags":[{"location":{"line":59,"column":3},"name":"@Disappearing_Elements","id":"c98b1d88-72df-4103-ab06-e720e86ec659"}],"keyword":"Scenario","name":"checking disappearing elements","steps":[{"location":{"line":61,"column":5},"keyword":"Given ","text":"I want all elements to be there","id":"fc4626db-20bf-4470-aa55-26453f301b6a"},{"location":{"line":62,"column":5},"keyword":"When ","text":"I check if the elements are there","id":"691d6bd4-759f-4f5b-a9df-e18c5e02217c"},{"location":{"line":63,"column":5},"keyword":"Then ","text":"all elements are present","id":"697bf10b-435d-4990-b255-cd844b1c959f"}],"id":"7ea1944d-d1f8-47c4-bf75-984276045599"}},{"scenario":{"location":{"line":66,"column":3},"tags":[{"location":{"line":65,"column":3},"name":"@Drag_And_Drop","id":"cdca8079-af7e-4073-a996-d3995ceb2787"}],"keyword":"Scenario","name":"checking if I can drag and drop","steps":[{"location":{"line":67,"column":5},"keyword":"Given ","text":"I want to drag and drop A to B","id":"88823230-fdba-4666-844b-f547f10188a8"},{"location":{"line":68,"column":5},"keyword":"When ","text":"I drag and drop A to B","id":"8e24701d-3c47-4fae-ba76-e3788bc57f16"},{"location":{"line":69,"column":5},"keyword":"Then ","text":"A and B switch spots","id":"9db26817-a20c-4166-b06d-3e997bc05b1d"}],"id":"ad8cb135-6e0b-407c-9669-dc4e3e3a5a6c"}}]},"comments":[{"location":{"line":71,"column":1},"text":"  #@tag2"},{"location":{"line":72,"column":1},"text":"  #Scenario Outline: Title of your scenario outline"},{"location":{"line":73,"column":1},"text":"    #Given I want to write a step with \u003cname\u003e"},{"location":{"line":74,"column":1},"text":"    #When I check for the \u003cvalue\u003e in step"},{"location":{"line":75,"column":1},"text":"    #Then I verify the \u003cstatus\u003e in step"},{"location":{"line":76,"column":1},"text":"#"},{"location":{"line":77,"column":1},"text":"    #Examples: "},{"location":{"line":78,"column":1},"text":"      #| name  | value | status  |"},{"location":{"line":79,"column":1},"text":"      #| name1 |     5 | success |"},{"location":{"line":80,"column":1},"text":"      #| name2 |     7 | Fail    |"}]}},{"pickle":{"id":"a9fdf63c-9ef8-45ca-836c-0bde714ee9e7","uri":"file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature","name":"Add some elements","language":"en","steps":[{"text":"I want to add some elements","id":"5edc7afe-4c42-4a90-af20-e0e091451068","astNodeIds":["7b06b419-a843-438d-ac11-cf17da87bba1"]},{"text":"I click the add elements button twice","id":"ace43d05-be16-4ee9-b07c-13e2d48c7f51","astNodeIds":["f80e80d3-200b-4251-b8e7-11ccce70d0fc"]},{"text":"two elements are added","id":"92499fdf-4cfd-4a98-b84d-d82286473839","astNodeIds":["a9c86cad-1f4a-431d-9b28-4e8b06e1985a"]}],"tags":[{"name":"@AppFeatures","astNodeId":"7bee2b2d-1138-464c-8c73-39a3e2eb9d1f"},{"name":"@Add_Elements","astNodeId":"82945bf8-80f2-449d-9da0-afd95a91a56f"},{"name":"@SmokeTest2","astNodeId":"cf3da14a-9669-4db9-abaf-23bdaf773fcd"}],"astNodeIds":["821445d6-62b4-4667-ac25-57012ecaf061"]}},{"pickle":{"id":"da1e13e7-e953-4f82-9750-85161211616c","uri":"file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature","name":"delete some elements","language":"en","steps":[{"text":"I want to delete some added elements","id":"bf893bb1-93cd-4ec3-8f1a-241c359f5bd4","astNodeIds":["51ae6d94-96a5-4fe7-b121-7703c4c54d6c"]},{"text":"I click the delete button on each element","id":"86775eef-cbc1-4505-94d3-9de38eefa7a2","astNodeIds":["64945f6c-f701-4bf5-b25a-0d2927105ecf"]},{"text":"the elements are removed","id":"c1afb1f8-4be7-4bb5-9879-1e701d8a81ad","astNodeIds":["930297e2-1a96-4a05-ac1e-dc6aa521a854"]}],"tags":[{"name":"@AppFeatures","astNodeId":"7bee2b2d-1138-464c-8c73-39a3e2eb9d1f"},{"name":"@Remove_Elements","astNodeId":"7568ee7a-4b7f-4cbb-a8f8-d901be13cb98"},{"name":"@SmokeTest2","astNodeId":"f060d961-1df4-43b1-b13b-dabc07b969b4"}],"astNodeIds":["e7529870-b0e0-487c-97dd-b36bda9ffa23"]}},{"pickle":{"id":"7ea64bce-a7f8-4b0e-805c-ef2e76e63917","uri":"file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature","name":"gain basic authorization","language":"en","steps":[{"text":"I want to gain authorization","id":"8e752b5d-37a5-4b7f-a4d0-de89de7c7b3f","astNodeIds":["dd3ac098-a8bf-4bf4-a117-2cf70ae50bff"]},{"text":"I give the correct creds through the http req","id":"d4a5d0d6-5d3e-4e9e-bfff-b0044b7dece0","astNodeIds":["16a3efd7-6426-40ff-882c-fe6f3fafa83b"]},{"text":"i am given authorization","id":"67dd157b-7e37-4c27-9519-5d2698551316","astNodeIds":["972d4902-1c6d-405c-9d5b-61e0a0174287"]}],"tags":[{"name":"@AppFeatures","astNodeId":"7bee2b2d-1138-464c-8c73-39a3e2eb9d1f"},{"name":"@Basic_Auth_Pass","astNodeId":"97ddd135-cfdc-42f1-add0-2693e177cd08"}],"astNodeIds":["86fa7d79-94a6-463f-9422-bcb4476be559"]}},{"pickle":{"id":"a3d02abc-965b-432c-a91f-a20a97717fae","uri":"file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature","name":"gain basic authorization","language":"en","steps":[{"text":"I want to gain authorization","id":"aec712bb-20d7-4572-83ae-2eafd313f9ce","astNodeIds":["ca0c8f99-390c-4577-89f2-f6cac20dff4b"]},{"text":"I give incorrect creds through the http req","id":"8c577604-4c7b-41a4-a273-536cf8336c5c","astNodeIds":["ae1f0389-649c-479e-910b-c5c21909c309"]},{"text":"i am not given authorization","id":"965f821d-bb40-4947-be84-815ba6c692bc","astNodeIds":["a993cb54-2ddc-4d1e-9398-cc007a6a5e30"]}],"tags":[{"name":"@AppFeatures","astNodeId":"7bee2b2d-1138-464c-8c73-39a3e2eb9d1f"},{"name":"@Basic_Auth_Fail","astNodeId":"361e73ab-e777-41f1-9f38-317612ee3579"}],"astNodeIds":["7f79c4b3-11b0-41f7-9f1e-3e98c09d9744"]}},{"pickle":{"id":"a4ee85de-9b35-4885-94bb-abd2a4dd8b75","uri":"file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature","name":"check for broken images","language":"en","steps":[{"text":"I want to check for broken images","id":"3bb33b3c-4f86-4fd0-9425-59f31878a726","astNodeIds":["42f098af-4746-486f-b56a-2e8bd0fa75d8"]},{"text":"I make a list of images","id":"6af84d38-934e-4e1a-9ce8-bebfbb7b15a4","astNodeIds":["a6c9768f-604f-416b-89df-4136e9d2d24f"]},{"text":"check them for broken images","id":"13614f46-d5a5-45c8-a10f-66dfd91ae084","astNodeIds":["f14ae95a-9f17-4959-890d-df23354cf5d3"]},{"text":"there are no broken images","id":"c3da9b70-d219-466e-9dc7-0a5cc824eb05","astNodeIds":["bbc75c54-500a-4de9-896c-ef19f266cd10"]}],"tags":[{"name":"@AppFeatures","astNodeId":"7bee2b2d-1138-464c-8c73-39a3e2eb9d1f"},{"name":"@Broken_Imgs","astNodeId":"266afb50-aab8-4aae-b960-4610ae4648a0"}],"astNodeIds":["0ffa1087-b84c-4f9b-995e-fe7ffdac25d0"]}},{"pickle":{"id":"4a9f5c34-fb2b-4b8c-a5be-6d11da5215d1","uri":"file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature","name":"working with checkboxes","language":"en","steps":[{"text":"I want to work with checkboxes","id":"80b0680f-8acb-45cb-b911-d0893850da2a","astNodeIds":["90fd68f0-3add-47ca-998e-8156b0ca2a83"]},{"text":"I check the default settings","id":"2cfc9ea1-ae16-4ae5-a241-c61b4eca315d","astNodeIds":["2a9b1da7-05c9-403b-b14f-103b90b4c6f2"]},{"text":"the first box is not enabled","id":"63d47e2e-d133-4bdc-82ff-3163257943ec","astNodeIds":["fda19853-0eda-4bb3-b6f0-62e4fb5472a1"]},{"text":"the second box is enabled","id":"a4a9422e-ca94-4c08-b559-882bf15a5877","astNodeIds":["78911fdc-f561-4b5e-8a75-13077f31a3c1"]}],"tags":[{"name":"@AppFeatures","astNodeId":"7bee2b2d-1138-464c-8c73-39a3e2eb9d1f"},{"name":"@Checkboxes_Default","astNodeId":"de438afa-b426-4788-9e9e-a747ce0033d7"}],"astNodeIds":["ba4a0f1c-123e-4ed8-8255-8bda8108ec91"]}},{"pickle":{"id":"ba4e76da-64df-43a5-b0de-4a19e6afcdfa","uri":"file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature","name":"working with editted checkboxes","language":"en","steps":[{"text":"I want to work with editted checkboxes","id":"8d3f0c25-b177-4142-bc72-eae03ae13331","astNodeIds":["05e0509e-ae22-4f55-8cbe-2a5c70c3433d"]},{"text":"I change the default settings for each box","id":"0a2b5caa-9716-4f41-9e7b-41dc22440691","astNodeIds":["adac1889-a11d-4c6d-afaa-c8d7ac3f001d"]},{"text":"the first box is enabled","id":"0e18aa45-4b99-426b-b2ab-50f1b8058fa3","astNodeIds":["3ecf8bab-c91a-417a-a7e9-c891cac12dcc"]},{"text":"the second box is not enabled","id":"f1222a60-557a-4309-8c11-4b8e56e47191","astNodeIds":["f3687f9f-5d32-4c9e-a314-1558d7a1acfe"]}],"tags":[{"name":"@AppFeatures","astNodeId":"7bee2b2d-1138-464c-8c73-39a3e2eb9d1f"},{"name":"@Checkboxes_Editted","astNodeId":"d887c431-00d8-40fe-b9c0-3ee9bab02a6c"}],"astNodeIds":["59f6cd4c-5c25-4927-968d-ec05b10643c3"]}},{"pickle":{"id":"c946c961-e50e-4fbe-84b3-7173599f76ba","uri":"file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature","name":"working with context menus","language":"en","steps":[{"text":"I want to access the context menu","id":"d6b7d22a-df75-4cc8-9268-f4509dcc386c","astNodeIds":["0895785a-34b3-45c9-abcf-53d6963c0800"]},{"text":"I right click the context menu","id":"85d54bc3-6971-444e-865b-11fb0b0bdd6e","astNodeIds":["c8ec3995-b6e7-453c-a810-8b2d3d37f7ec"]},{"text":"the context menu is accessed","id":"e7ea1088-48a7-4e5e-865e-73cf18e653ec","astNodeIds":["1b6885ea-baa4-46d9-9e08-1faa93a9567a"]}],"tags":[{"name":"@AppFeatures","astNodeId":"7bee2b2d-1138-464c-8c73-39a3e2eb9d1f"},{"name":"@Context_Menu_Right_Click","astNodeId":"4e68f984-4e5a-4c91-9195-5ffb72f8954b"}],"astNodeIds":["681c790b-ea9b-4a2b-8013-314407eaa134"]}},{"pickle":{"id":"8ae0e13f-0fbd-4c56-856e-01fbc4bac102","uri":"file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature","name":"checking disappearing elements","language":"en","steps":[{"text":"I want all elements to be there","id":"e5a6f9e9-414b-4e92-ad7d-2d42e61143b9","astNodeIds":["fc4626db-20bf-4470-aa55-26453f301b6a"]},{"text":"I check if the elements are there","id":"31e3657a-a2a5-42f5-8019-c8798951e92a","astNodeIds":["691d6bd4-759f-4f5b-a9df-e18c5e02217c"]},{"text":"all elements are present","id":"3c11dadd-3bb3-482a-a4f3-bc0dc465b9b0","astNodeIds":["697bf10b-435d-4990-b255-cd844b1c959f"]}],"tags":[{"name":"@AppFeatures","astNodeId":"7bee2b2d-1138-464c-8c73-39a3e2eb9d1f"},{"name":"@Disappearing_Elements","astNodeId":"c98b1d88-72df-4103-ab06-e720e86ec659"}],"astNodeIds":["7ea1944d-d1f8-47c4-bf75-984276045599"]}},{"pickle":{"id":"c544a6ad-882f-4394-add2-7532126faed9","uri":"file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature","name":"checking if I can drag and drop","language":"en","steps":[{"text":"I want to drag and drop A to B","id":"d9ef12b9-6657-4ae5-a6b3-c5a27213ee09","astNodeIds":["88823230-fdba-4666-844b-f547f10188a8"]},{"text":"I drag and drop A to B","id":"da48bcff-7ccb-4952-abfa-3a6ecd02b117","astNodeIds":["8e24701d-3c47-4fae-ba76-e3788bc57f16"]},{"text":"A and B switch spots","id":"758bcf34-9e74-4ebe-9256-b53573b7ea49","astNodeIds":["9db26817-a20c-4166-b06d-3e997bc05b1d"]}],"tags":[{"name":"@AppFeatures","astNodeId":"7bee2b2d-1138-464c-8c73-39a3e2eb9d1f"},{"name":"@Drag_And_Drop","astNodeId":"cdca8079-af7e-4073-a996-d3995ceb2787"}],"astNodeIds":["ad8cb135-6e0b-407c-9669-dc4e3e3a5a6c"]}},{"testCase":{"id":"37d53bdd-e533-4780-b4d3-4ff75e07a3ee","pickleId":"a9fdf63c-9ef8-45ca-836c-0bde714ee9e7","testSteps":[{"id":"41345b86-af2b-47e8-8c45-0ea40f14f243","hookId":"44c7a409-0136-413d-a069-0b9572ab6ae0"},{"id":"a28184fb-05e7-460b-9c64-ea41c8cb1381","pickleStepId":"5edc7afe-4c42-4a90-af20-e0e091451068","stepDefinitionIds":["10270cb1-d8f8-4fb3-bf5c-4e302966db12"],"stepMatchArgumentsLists":[{}]},{"id":"0e79cf6b-1b09-4fd5-87b1-40b1fd765704","pickleStepId":"ace43d05-be16-4ee9-b07c-13e2d48c7f51","stepDefinitionIds":["ba2589a6-e68f-4582-ac68-8121e4fe11a0"],"stepMatchArgumentsLists":[{}]},{"id":"839fdfc5-e7af-4737-81ea-5252bcc1a18b","pickleStepId":"92499fdf-4cfd-4a98-b84d-d82286473839","stepDefinitionIds":["92e99255-698b-486c-b5ab-891378c683ea"],"stepMatchArgumentsLists":[{}]},{"id":"f44b5b1e-c4ae-4684-9240-e96ebe9c6251","hookId":"0b0bc47d-8745-4ea1-a8ba-0cb4676d38b6"},{"id":"c0ed1b48-09d9-4ad2-bb27-40b061f76433","hookId":"27d6d54f-6a1d-440c-a37a-6cad957fc5b0"},{"id":"256a8b4c-a903-4802-bf04-7ad769ad06c2","hookId":"35546518-e158-47a9-b3c3-4f941235bb50"},{"id":"1aa1a074-04fe-4f0e-9147-f6fcc1fcf6ec","hookId":"f3e7c338-07a0-49ce-88c5-1576b61d2586"},{"id":"209810ab-3501-4cdb-82d9-e80846603978","hookId":"1f14dc14-3390-41fb-bcc2-ef5158cf985f"}]}},{"testCaseStarted":{"timestamp":{"seconds":"1626445249","nanos":386898033},"testCaseId":"37d53bdd-e533-4780-b4d3-4ff75e07a3ee","id":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepStarted":{"timestamp":{"seconds":"1626445249","nanos":429435587},"testStepId":"41345b86-af2b-47e8-8c45-0ea40f14f243","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"1","nanos":915202080}},"timestamp":{"seconds":"1626445251","nanos":344637667},"testStepId":"41345b86-af2b-47e8-8c45-0ea40f14f243","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepStarted":{"timestamp":{"seconds":"1626445251","nanos":361142995},"testStepId":"a28184fb-05e7-460b-9c64-ea41c8cb1381","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":202504221}},"timestamp":{"seconds":"1626445251","nanos":563647216},"testStepId":"a28184fb-05e7-460b-9c64-ea41c8cb1381","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepStarted":{"timestamp":{"seconds":"1626445251","nanos":564241338},"testStepId":"0e79cf6b-1b09-4fd5-87b1-40b1fd765704","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":62148217}},"timestamp":{"seconds":"1626445251","nanos":626389555},"testStepId":"0e79cf6b-1b09-4fd5-87b1-40b1fd765704","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepStarted":{"timestamp":{"seconds":"1626445251","nanos":627297904},"testStepId":"839fdfc5-e7af-4737-81ea-5252bcc1a18b","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":12463793}},"timestamp":{"seconds":"1626445251","nanos":639761697},"testStepId":"839fdfc5-e7af-4737-81ea-5252bcc1a18b","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepStarted":{"timestamp":{"seconds":"1626445251","nanos":640264333},"testStepId":"f44b5b1e-c4ae-4684-9240-e96ebe9c6251","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":67180079}},"timestamp":{"seconds":"1626445251","nanos":707444412},"testStepId":"f44b5b1e-c4ae-4684-9240-e96ebe9c6251","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepStarted":{"timestamp":{"seconds":"1626445251","nanos":707939297},"testStepId":"c0ed1b48-09d9-4ad2-bb27-40b061f76433","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":399358976}},"timestamp":{"seconds":"1626445252","nanos":107298273},"testStepId":"c0ed1b48-09d9-4ad2-bb27-40b061f76433","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepStarted":{"timestamp":{"seconds":"1626445252","nanos":108162249},"testStepId":"256a8b4c-a903-4802-bf04-7ad769ad06c2","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":391119897}},"timestamp":{"seconds":"1626445252","nanos":499282146},"testStepId":"256a8b4c-a903-4802-bf04-7ad769ad06c2","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepStarted":{"timestamp":{"seconds":"1626445252","nanos":499723362},"testStepId":"1aa1a074-04fe-4f0e-9147-f6fcc1fcf6ec","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":370473030}},"timestamp":{"seconds":"1626445252","nanos":870196392},"testStepId":"1aa1a074-04fe-4f0e-9147-f6fcc1fcf6ec","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepStarted":{"timestamp":{"seconds":"1626445252","nanos":871175481},"testStepId":"209810ab-3501-4cdb-82d9-e80846603978","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":379967610}},"timestamp":{"seconds":"1626445253","nanos":251143091},"testStepId":"209810ab-3501-4cdb-82d9-e80846603978","testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testCaseFinished":{"timestamp":{"seconds":"1626445253","nanos":251484375},"testCaseStartedId":"72a7aac8-bdbe-44a3-8944-4a30fa993f9b"}},{"testCase":{"id":"42df77a4-2b60-4826-b160-2b12f50bc901","pickleId":"da1e13e7-e953-4f82-9750-85161211616c","testSteps":[{"id":"569f4106-9891-4103-a49b-b957aaef49a0","hookId":"367e7be0-6951-48ca-b2f6-914d300ab404"},{"id":"386a6e6f-aae4-410f-b5ef-33ad80200ca8","pickleStepId":"bf893bb1-93cd-4ec3-8f1a-241c359f5bd4","stepDefinitionIds":["c197c420-0e27-41a6-8393-fc7114e8c9a5"],"stepMatchArgumentsLists":[{}]},{"id":"ac743275-6357-4e07-896c-00c50d4518f4","pickleStepId":"86775eef-cbc1-4505-94d3-9de38eefa7a2","stepDefinitionIds":["9f10ec8d-a39d-4315-9cec-d265af0e6e01"],"stepMatchArgumentsLists":[{}]},{"id":"960bdc75-33eb-4f83-bd72-bec758be86bd","pickleStepId":"c1afb1f8-4be7-4bb5-9879-1e701d8a81ad","stepDefinitionIds":["99d5a2f6-a0d1-4ceb-901c-b69d758d463f"],"stepMatchArgumentsLists":[{}]},{"id":"c6c20d60-da20-451b-a912-c361e3fe0623","hookId":"c0e83666-36ce-4379-bd28-c488f0bd254e"},{"id":"c57c8576-bc30-49ec-8c10-9f84f146dcc8","hookId":"27d6d54f-6a1d-440c-a37a-6cad957fc5b0"},{"id":"e311dbae-8d17-4459-8edd-12a7c2ae319c","hookId":"35546518-e158-47a9-b3c3-4f941235bb50"},{"id":"3c54390d-529d-4f08-8e9c-ff48501e1b10","hookId":"f3e7c338-07a0-49ce-88c5-1576b61d2586"},{"id":"25123beb-db2a-46d0-8f09-2ca396936253","hookId":"1f14dc14-3390-41fb-bcc2-ef5158cf985f"}]}},{"testCaseStarted":{"timestamp":{"seconds":"1626445253","nanos":259922296},"testCaseId":"42df77a4-2b60-4826-b160-2b12f50bc901","id":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepStarted":{"timestamp":{"seconds":"1626445253","nanos":260622059},"testStepId":"569f4106-9891-4103-a49b-b957aaef49a0","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"1","nanos":582919150}},"timestamp":{"seconds":"1626445254","nanos":843541209},"testStepId":"569f4106-9891-4103-a49b-b957aaef49a0","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepStarted":{"timestamp":{"seconds":"1626445254","nanos":844704850},"testStepId":"386a6e6f-aae4-410f-b5ef-33ad80200ca8","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":252698256}},"timestamp":{"seconds":"1626445255","nanos":97403106},"testStepId":"386a6e6f-aae4-410f-b5ef-33ad80200ca8","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepStarted":{"timestamp":{"seconds":"1626445255","nanos":97673161},"testStepId":"ac743275-6357-4e07-896c-00c50d4518f4","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"1","nanos":113781041}},"timestamp":{"seconds":"1626445256","nanos":211454202},"testStepId":"ac743275-6357-4e07-896c-00c50d4518f4","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepStarted":{"timestamp":{"seconds":"1626445256","nanos":212426929},"testStepId":"960bdc75-33eb-4f83-bd72-bec758be86bd","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"8","nanos":70790297}},"timestamp":{"seconds":"1626445264","nanos":283217226},"testStepId":"960bdc75-33eb-4f83-bd72-bec758be86bd","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepStarted":{"timestamp":{"seconds":"1626445264","nanos":284929966},"testStepId":"c6c20d60-da20-451b-a912-c361e3fe0623","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":83169523}},"timestamp":{"seconds":"1626445264","nanos":368099489},"testStepId":"c6c20d60-da20-451b-a912-c361e3fe0623","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepStarted":{"timestamp":{"seconds":"1626445264","nanos":368550384},"testStepId":"c57c8576-bc30-49ec-8c10-9f84f146dcc8","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":422989432}},"timestamp":{"seconds":"1626445264","nanos":791539816},"testStepId":"c57c8576-bc30-49ec-8c10-9f84f146dcc8","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepStarted":{"timestamp":{"seconds":"1626445264","nanos":791827627},"testStepId":"e311dbae-8d17-4459-8edd-12a7c2ae319c","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":362381006}},"timestamp":{"seconds":"1626445265","nanos":154208633},"testStepId":"e311dbae-8d17-4459-8edd-12a7c2ae319c","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepStarted":{"timestamp":{"seconds":"1626445265","nanos":155794875},"testStepId":"3c54390d-529d-4f08-8e9c-ff48501e1b10","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":344083987}},"timestamp":{"seconds":"1626445265","nanos":499878862},"testStepId":"3c54390d-529d-4f08-8e9c-ff48501e1b10","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepStarted":{"timestamp":{"seconds":"1626445265","nanos":500206083},"testStepId":"25123beb-db2a-46d0-8f09-2ca396936253","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":334814892}},"timestamp":{"seconds":"1626445265","nanos":835020975},"testStepId":"25123beb-db2a-46d0-8f09-2ca396936253","testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testCaseFinished":{"timestamp":{"seconds":"1626445265","nanos":835322179},"testCaseStartedId":"e57c54e6-c970-4275-b1d1-cf17cb15f772"}},{"testCase":{"id":"1a794a68-5f11-4500-a871-076ca5e5d9cc","pickleId":"7ea64bce-a7f8-4b0e-805c-ef2e76e63917","testSteps":[{"id":"929c3318-856d-4665-be88-5c160df8c2ac","pickleStepId":"8e752b5d-37a5-4b7f-a4d0-de89de7c7b3f","stepDefinitionIds":["08bbcfb4-2c86-4739-b1c3-f275bbda531a"],"stepMatchArgumentsLists":[{}]},{"id":"b3418d5d-1c3e-4f79-a3b5-ab9db60e04fc","pickleStepId":"d4a5d0d6-5d3e-4e9e-bfff-b0044b7dece0","stepDefinitionIds":["21dc2e7e-9fa0-45a4-af56-1133f98eb836"],"stepMatchArgumentsLists":[{}]},{"id":"60de9d67-007d-4323-9ce4-baafde5112c6","pickleStepId":"67dd157b-7e37-4c27-9519-5d2698551316","stepDefinitionIds":["cb4c633d-4eb9-4eff-b73d-1e711ee6d478"],"stepMatchArgumentsLists":[{}]},{"id":"49491c37-c1a2-4ba8-96f6-6d515be479e6","hookId":"27d6d54f-6a1d-440c-a37a-6cad957fc5b0"},{"id":"e009d18b-861a-450e-8060-d89c3adcf46b","hookId":"35546518-e158-47a9-b3c3-4f941235bb50"},{"id":"8b5e9606-3251-41a7-8ca1-8f54a062abc0","hookId":"f3e7c338-07a0-49ce-88c5-1576b61d2586"},{"id":"62c0c1dd-cca8-4e24-851d-2eeaede38d44","hookId":"1f14dc14-3390-41fb-bcc2-ef5158cf985f"}]}},{"testCaseStarted":{"timestamp":{"seconds":"1626445265","nanos":842281107},"testCaseId":"1a794a68-5f11-4500-a871-076ca5e5d9cc","id":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepStarted":{"timestamp":{"seconds":"1626445265","nanos":843073731},"testStepId":"929c3318-856d-4665-be88-5c160df8c2ac","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"1","nanos":145312269}},"timestamp":{"seconds":"1626445266","nanos":988386000},"testStepId":"929c3318-856d-4665-be88-5c160df8c2ac","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepStarted":{"timestamp":{"seconds":"1626445266","nanos":988710625},"testStepId":"b3418d5d-1c3e-4f79-a3b5-ab9db60e04fc","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"2","nanos":585320920}},"timestamp":{"seconds":"1626445269","nanos":574031545},"testStepId":"b3418d5d-1c3e-4f79-a3b5-ab9db60e04fc","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepStarted":{"timestamp":{"seconds":"1626445269","nanos":575072605},"testStepId":"60de9d67-007d-4323-9ce4-baafde5112c6","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":58253506}},"timestamp":{"seconds":"1626445269","nanos":633326111},"testStepId":"60de9d67-007d-4323-9ce4-baafde5112c6","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepStarted":{"timestamp":{"seconds":"1626445269","nanos":633658921},"testStepId":"49491c37-c1a2-4ba8-96f6-6d515be479e6","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":68735833}},"timestamp":{"seconds":"1626445269","nanos":702394754},"testStepId":"49491c37-c1a2-4ba8-96f6-6d515be479e6","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepStarted":{"timestamp":{"seconds":"1626445269","nanos":702641740},"testStepId":"e009d18b-861a-450e-8060-d89c3adcf46b","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":353968093}},"timestamp":{"seconds":"1626445270","nanos":56609833},"testStepId":"e009d18b-861a-450e-8060-d89c3adcf46b","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepStarted":{"timestamp":{"seconds":"1626445270","nanos":56907222},"testStepId":"8b5e9606-3251-41a7-8ca1-8f54a062abc0","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":341362112}},"timestamp":{"seconds":"1626445270","nanos":398269334},"testStepId":"8b5e9606-3251-41a7-8ca1-8f54a062abc0","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepStarted":{"timestamp":{"seconds":"1626445270","nanos":398562218},"testStepId":"62c0c1dd-cca8-4e24-851d-2eeaede38d44","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":331515482}},"timestamp":{"seconds":"1626445270","nanos":730077700},"testStepId":"62c0c1dd-cca8-4e24-851d-2eeaede38d44","testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testCaseFinished":{"timestamp":{"seconds":"1626445270","nanos":730281135},"testCaseStartedId":"d8bdc1b9-7154-4e48-8df5-ec86fe8fc882"}},{"testCase":{"id":"0b26faf1-eaaf-4616-b12b-cfb6623d4f0e","pickleId":"a3d02abc-965b-432c-a91f-a20a97717fae","testSteps":[{"id":"0befe39f-8f2c-423c-b443-6e1375395369","pickleStepId":"aec712bb-20d7-4572-83ae-2eafd313f9ce","stepDefinitionIds":["f95496a1-3dc4-426d-ae05-44549f774aab"],"stepMatchArgumentsLists":[{}]},{"id":"ed75256d-bca4-4695-8b40-816220943fe0","pickleStepId":"8c577604-4c7b-41a4-a273-536cf8336c5c","stepDefinitionIds":["59f8973e-fc74-44d6-92a5-68b61f46f035"],"stepMatchArgumentsLists":[{}]},{"id":"5ccbd82e-ad8c-48d0-800f-114e80ed9269","pickleStepId":"965f821d-bb40-4947-be84-815ba6c692bc","stepDefinitionIds":["ecede2be-5d5f-4ed6-882e-618928b90e5b"],"stepMatchArgumentsLists":[{}]},{"id":"4c1fd203-6d39-4e77-b60e-c488b00f4657","hookId":"27d6d54f-6a1d-440c-a37a-6cad957fc5b0"},{"id":"de9534b9-6eb1-40af-954c-dff8d64c09c3","hookId":"35546518-e158-47a9-b3c3-4f941235bb50"},{"id":"815a892c-d37e-492d-9c0d-cbdb985ee323","hookId":"f3e7c338-07a0-49ce-88c5-1576b61d2586"},{"id":"823431ed-5d7d-4650-8c45-f9d592dc2901","hookId":"1f14dc14-3390-41fb-bcc2-ef5158cf985f"}]}},{"testCaseStarted":{"timestamp":{"seconds":"1626445270","nanos":734015311},"testCaseId":"0b26faf1-eaaf-4616-b12b-cfb6623d4f0e","id":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepStarted":{"timestamp":{"seconds":"1626445270","nanos":734682618},"testStepId":"0befe39f-8f2c-423c-b443-6e1375395369","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"1","nanos":519395821}},"timestamp":{"seconds":"1626445272","nanos":254078439},"testStepId":"0befe39f-8f2c-423c-b443-6e1375395369","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepStarted":{"timestamp":{"seconds":"1626445272","nanos":254868423},"testStepId":"ed75256d-bca4-4695-8b40-816220943fe0","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"2","nanos":536956064}},"timestamp":{"seconds":"1626445274","nanos":791824487},"testStepId":"ed75256d-bca4-4695-8b40-816220943fe0","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepStarted":{"timestamp":{"seconds":"1626445274","nanos":792751808},"testStepId":"5ccbd82e-ad8c-48d0-800f-114e80ed9269","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepFinished":{"testStepResult":{"status":"FAILED","message":"java.lang.AssertionError: expected [true] but found [false]\n\tat org.testng.Assert.fail(Assert.java:99)\n\tat org.testng.Assert.failNotEquals(Assert.java:1037)\n\tat org.testng.Assert.assertTrue(Assert.java:45)\n\tat org.testng.Assert.assertTrue(Assert.java:55)\n\tat testrunner.basic_auth.Basic_Auth_Fail.i_am_not_given_authorization(Basic_Auth_Fail.java:46)\n\tat ✽.i am not given authorization(file:///home/darkquilius/All_Eclipse_WSs/TheInternetSiteSelenium/Com/src/test/resources/features/AppTests.feature:30)\n","duration":{"nanos":17747015}},"timestamp":{"seconds":"1626445274","nanos":810498823},"testStepId":"5ccbd82e-ad8c-48d0-800f-114e80ed9269","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepStarted":{"timestamp":{"seconds":"1626445274","nanos":812216253},"testStepId":"4c1fd203-6d39-4e77-b60e-c488b00f4657","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":76854740}},"timestamp":{"seconds":"1626445274","nanos":889070993},"testStepId":"4c1fd203-6d39-4e77-b60e-c488b00f4657","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepStarted":{"timestamp":{"seconds":"1626445274","nanos":889647637},"testStepId":"de9534b9-6eb1-40af-954c-dff8d64c09c3","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":64987811}},"timestamp":{"seconds":"1626445274","nanos":954635448},"testStepId":"de9534b9-6eb1-40af-954c-dff8d64c09c3","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepStarted":{"timestamp":{"seconds":"1626445274","nanos":954944184},"testStepId":"815a892c-d37e-492d-9c0d-cbdb985ee323","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":358639355}},"timestamp":{"seconds":"1626445275","nanos":313583539},"testStepId":"815a892c-d37e-492d-9c0d-cbdb985ee323","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepStarted":{"timestamp":{"seconds":"1626445275","nanos":313772269},"testStepId":"823431ed-5d7d-4650-8c45-f9d592dc2901","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":339859013}},"timestamp":{"seconds":"1626445275","nanos":653631282},"testStepId":"823431ed-5d7d-4650-8c45-f9d592dc2901","testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testCaseFinished":{"timestamp":{"seconds":"1626445275","nanos":653867146},"testCaseStartedId":"cce5df19-38fc-4191-8bd0-c6dde18fa5b5"}},{"testCase":{"id":"cf57535c-c983-4ddf-a708-efa807a8c816","pickleId":"a4ee85de-9b35-4885-94bb-abd2a4dd8b75","testSteps":[{"id":"4b782bd9-92ca-4f9d-a3c0-c65e1f92ec2b","hookId":"cd0f4a0c-
